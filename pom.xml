@@ -11,6 +11,21 @@
     <packaging>jar</packaging>
 
     <dependencies>
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>s3</artifactId>
+            <version>2.25.27</version>
+        </dependency>
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>sqs</artifactId>
+            <version>2.25.59</version>
+        </dependency>
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>rekognition</artifactId>
+            <version>2.26.14</version>
+        </dependency>
 
     </dependencies>
 
@@ -29,43 +44,49 @@
             <!-- Maven Jar plugin for Car Rekognition-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.2.0</version>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.3.0</version>
                 <executions>
                     <!--Car rekognition jar-->
                     <execution>
-                        <id>Car_Rekognition</id>
+                        <id>Car_Rekognition-jar</id>
                         <goals>
-                            <goal>jar</goal>
+                            <goal>single</goal>
                         </goals>
                         <phase>package</phase>
                         <configuration>
+                            <appendAssemblyId>false</appendAssemblyId>
                             <finalName>Car_Rekognition</finalName>
                             <outputDirectory>${project.build.directory}/car_rekognition</outputDirectory>
-                            <classifier>Car</classifier>
                             <archive>
                                 <manifest>
                                     <mainClass>org.example.car_rekognition.Car_Rekognition</mainClass>
                                 </manifest>
                             </archive>
+                            <descriptorRefs>
+                                <descriptorRef>jar-with-dependencies</descriptorRef>
+                            </descriptorRefs>
                         </configuration>
                     </execution>
                     <!--Text Recognition Jar-->
                     <execution>
-                        <id>Text_Rekognition</id>
+                        <id>Text_Rekognition-jar</id>
                         <goals>
-                            <goal>jar</goal>
+                            <goal>single</goal>
                         </goals>
                         <phase>package</phase>
                         <configuration>
+                            <appendAssemblyId>false</appendAssemblyId>
                             <finalName>Text_Rekognition</finalName>
                             <outputDirectory>${project.build.directory}/text_rekognition</outputDirectory>
-                            <classifier>Text</classifier>
                             <archive>
                                 <manifest>
                                     <mainClass>org.example.text_rekognition.Text_Rekognition</mainClass>
                                 </manifest>
                             </archive>
+                            <descriptorRefs>
+                                <descriptorRef>jar-with-dependencies</descriptorRef>
+                            </descriptorRefs>
                         </configuration>
                     </execution>
                 </executions>
