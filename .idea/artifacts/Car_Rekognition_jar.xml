@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Car_Rekognition:jar">
+    <output-path>$PROJECT_DIR$/src/main/resources/Car_Rekognition</output-path>
+    <root id="archive" name="Car_Rekognition.jar">
+      <element id="module-output" name="AWS_Rekognition" />
+      <element id="module-test-output" name="AWS_Rekognition" />
+    </root>
+  </artifact>
+</component>

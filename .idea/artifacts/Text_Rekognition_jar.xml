@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Text_Rekognition:jar">
+    <output-path>$PROJECT_DIR$/src/main/resources/text_rekognition</output-path>
+    <root id="archive" name="Text_Rekognition.jar">
+      <element id="module-output" name="AWS_Rekognition" />
+    </root>
+  </artifact>
+</component>
