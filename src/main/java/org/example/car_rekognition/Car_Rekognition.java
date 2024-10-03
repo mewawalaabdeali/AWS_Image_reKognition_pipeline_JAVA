@@ -3,7 +3,6 @@ package org.example.car_rekognition;
 import software.amazon.awssdk.services.rekognition.model.DetectLabelsRequest;
 import software.amazon.awssdk.services.rekognition.model.DetectLabelsResponse;
 import software.amazon.awssdk.services.rekognition.model.Label;
-
 import software.amazon.awssdk.services.rekognition.model.Image;
 import software.amazon.awssdk.services.s3.model.S3Object;
 import software.amazon.awssdk.services.rekognition.RekognitionClient;
@@ -12,7 +11,7 @@ import software.amazon.awssdk.services.s3.model.ListObjectsV2Request;
 import software.amazon.awssdk.services.s3.model.ListObjectsV2Response;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.sqs.SqsClient;
-
+import software.amazon.awssdk.services.sqs.model.SendMessageRequest;
 
 
 import java.util.ArrayList;
@@ -24,6 +23,7 @@ public class Car_Rekognition {
         //Step1: Initializing the s3 client
         S3Client s3 = S3Client.builder().region(Region.US_EAST_1).build();
         String bucketName = "my-image-recognition-demo-bucket";
+        String queueUrl = "https://sqs.us-east-1.amazonaws.com/590183997993/image-recognition-demo";
 
         //Step2: We will read and list objects from s3
         ListObjectsV2Request listRequest = ListObjectsV2Request.builder().bucket(bucketName).build();
@@ -55,7 +55,11 @@ public class Car_Rekognition {
         //Step1 : initializing Rekognition Client
         RekognitionClient rekognition = RekognitionClient.builder().region(Region.US_EAST_1).build();
 
-        //Now since we have processed the images with S3 above, we will ask rekognition to process only those images based on our filter
+        //Step2: We will also initialize SQS client
+        SqsClient sqs = SqsClient.builder().region(Region.US_EAST_1).build();
+
+
+        //Step : 3Now since we have processed the images with S3 above, we will ask rekognition to process only those images based on our filter
         for (String imageFile:imageFiles){
             DetectLabelsRequest detectRequest = DetectLabelsRequest.builder()
                     .image(Image.builder().s3Object(software.amazon.awssdk.services.rekognition.model.S3Object.builder()
@@ -72,15 +76,26 @@ public class Car_Rekognition {
                     System.out.println("Car detected in image : " +imageFile);
                     carDetected = true;
 
+                    //Here we will write method to send messages as well to SQS
+                    SendMessageRequest sendMsgRequest = SendMessageRequest.builder().queueUrl(queueUrl)
+                            .messageBody(imageFile).build();
+                    sqs.sendMessage(sendMsgRequest);
+                    System.out.println("Car detected in image: " + imageFile + ". Sent to SQS.");
+
 
                 }
             }
             if(!carDetected){
                 System.out.println("No car detected in image : " +imageFile);
             }
+        }
 
+        //We will declare a termination message
+        SendMessageRequest terminationMsgRequest = SendMessageRequest.builder().queueUrl(queueUrl)
+                .messageBody("-1").build();
+        sqs.sendMessage(terminationMsgRequest);
 
-                    }
+        System.out.println("Sent termination message to SQS");
 
             }
         }
