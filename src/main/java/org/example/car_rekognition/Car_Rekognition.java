@@ -20,10 +20,13 @@ import java.util.List;
 public class Car_Rekognition {
     public static void main(String[] args) {
 
-        //Step1: Initializing the s3 client
-        S3Client s3 = S3Client.builder().region(Region.US_EAST_1).build();
+        //Data Declaration
         String bucketName = "my-image-recognition-demo-bucket";
         String queueUrl = "https://sqs.us-east-1.amazonaws.com/590183997993/image-recognition-demo";
+
+        //Step1: Initializing the s3 client
+        S3Client s3 = S3Client.builder().region(Region.US_EAST_1).build();
+
 
         //Step2: We will read and list objects from s3
         ListObjectsV2Request listRequest = ListObjectsV2Request.builder().bucket(bucketName).build();
