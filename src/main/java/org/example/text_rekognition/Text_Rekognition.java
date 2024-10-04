@@ -15,7 +15,9 @@ import software.amazon.awssdk.services.sqs.model.DeleteMessageRequest;
 import software.amazon.awssdk.services.sqs.model.ReceiveMessageRequest;
 import software.amazon.awssdk.services.sqs.model.Message;
 
-
+import java.io.IOException;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +26,15 @@ public class Text_Rekognition {
     public static void main(String[] args) {
         String bucketName = "my-image-recognition-demo-bucket";
         String queueUrl = "https://sqs.us-east-1.amazonaws.com/590183997993/image-recognition-demo";
+        //Initializing BuffedWriter and FileWriter
+        FileWriter fileWriter = null;
+        BufferedWriter writer = null;
 
+
+        try{
+
+            fileWriter = new FileWriter("output.txt",true);
+            writer = new BufferedWriter(fileWriter);
 
         //Step1: Initializing Clients
         SqsClient sqs = SqsClient.builder().region(Region.US_EAST_1).build();
@@ -41,6 +51,7 @@ public class Text_Rekognition {
             String key = object.key();
             if(key.endsWith("jpg") || key.endsWith("jpeg") || key.endsWith("png") ){
                 System.out.println("Images found in : " +key);
+                writer.write("Image found in : " + key + "\n");
                 imageFiles.add(key);
             }
 
@@ -49,8 +60,11 @@ public class Text_Rekognition {
         //Printing the image details
         System.out.println("Total Images found : " +imageFiles.size());
         System.out.println("Images found : ");
+        writer.write("Total Images found : " + imageFiles.size() + "\n");
+        writer.write("Images found : " + "\n");
         for(String imageFile : imageFiles){
             System.out.println(imageFile);
+            writer.write(imageFiles + "\n");
         }
 
         //Now we will process these images with Rekognition for text
@@ -66,13 +80,16 @@ public class Text_Rekognition {
             List<TextDetection> textDetections = textResponse.textDetections();
             if(!textDetections.isEmpty()){
                 System.out.println("Text detected in images : " +imageFile);
+                writer.write("Text detected in images : " + imageFile + "\n");
                 for(TextDetection text: textDetections){
                     if (text.confidence() >= 80.0f) {
                         System.out.println("Detected Text : " +text.detectedText());
+                        writer.write("Detected Text : " + text.detectedText() + "\n");
                     }
                 }
             }else {
                 System.out.println("No text detected in images : " + imageFile);
+                writer.write("No text detected in images : " + imageFile + "\n");
             }
 
 
@@ -91,6 +108,7 @@ public class Text_Rekognition {
                 //First we will check for termination signal(-1)
                 if (body.equals("-1")){
                     System.out.println("End of Receiving messages");
+                    writer.write("End of Receiving messages \n");
                     String messageReceiptHandle = message.receiptHandle();
                     sqs.deleteMessage(DeleteMessageRequest.builder()
                             .queueUrl(queueUrl).receiptHandle(messageReceiptHandle)
@@ -113,14 +131,17 @@ public class Text_Rekognition {
                         List<TextDetection> textDetections = textResponse.textDetections();
                         if(!textDetections.isEmpty()){
                             System.out.println("Text Detected in image : " +imageFile);
+                            writer.write("Text Detected in image : " + imageFile + "\n");
                             for (TextDetection text : textDetections){
                                 if(text.confidence()>=80.0f){
                                     System.out.println("Detected Text " + text.detectedText());
+                                    writer.write("Detect Text" + text.detectedText() + "\n");
 
                                 }
                             }
                         }else{
                             System.out.println("No text detected in image : " + imageFile);
+                            writer.write("No text detected in image : " + imageFile+ "\n");
                         }
                         String messageReceiptHandle = message.receiptHandle();
                         sqs.deleteMessage(DeleteMessageRequest.builder()
@@ -129,23 +150,20 @@ public class Text_Rekognition {
 
                     }
                 }
-
             }
-
-
         }
+        } catch (IOException e){
+            e.printStackTrace();
+        } finally {
+            //Closing writers in finally block
+            try{
+                if (writer != null)writer.close();
+                if (fileWriter != null)fileWriter.close();
 
-
-
-
-
-
-
-
-
-
-
-
+            }catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
         }
     }
 
