@@ -62,7 +62,7 @@ public class Car_Rekognition {
         SqsClient sqs = SqsClient.builder().region(Region.US_EAST_1).build();
 
 
-        //Step : 3Now since we have processed the images with S3 above, we will ask rekognition to process only those images based on our filter
+        //Step3: Now since we have processed the images with S3 above, we will ask rekognition to process only those images based on our filter
         for (String imageFile:imageFiles){
             DetectLabelsRequest detectRequest = DetectLabelsRequest.builder()
                     .image(Image.builder().s3Object(software.amazon.awssdk.services.rekognition.model.S3Object.builder()
