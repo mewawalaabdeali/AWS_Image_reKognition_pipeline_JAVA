@@ -1,0 +1,50 @@
+- name: Deploy and run Rekognition applications
+  hosts: all
+  gather_facts: no
+  #become: yes  # Run with elevated privileges if needed
+
+  tasks:
+
+    - name: Copy Car Rekognition JAR to Worker Node 1
+      copy:
+        src: /home/ec2-user/AWS_Image_reKognition_pipeline_JAVA/target/car_rekognition/Car_Rekognition.jar
+        dest: /home/ec2-user/Car_Rekognition.jar
+      when: inventory_hostname == "worker_node_1"
+
+    - name: Copy Text Rekognition JAR to Worker Node 2
+      copy:
+        src: /home/ec2-user/AWS_Image_reKognition_pipeline_JAVA/target/text_rekognition/Text_Rekognition.jar
+        dest: /home/ec2-user/Text_Rekognition.jar
+      when: inventory_hostname == "worker_node_2"
+
+    - name: Trigger Car Rekognition on Worker Node 1
+      shell: |
+        cd /home/ec2-user
+        nohup java -jar Car_Rekognition.jar > car_rekognition_execution.log 2>&1 &
+      when: inventory_hostname == "worker_node_1"
+      async: 60  # Run asynchronously with a timeout of 60 seconds
+      poll: 0
+
+    - name: Wait for a few seconds before starting Text Rekognition on Worker Node 2
+      pause:
+        seconds: 150
+      when: inventory_hostname == "worker_node_2"
+
+    - name: Trigger Text Rekognition on Worker Node 2
+      shell: |
+        cd /home/ec2-user
+        nohup java -jar Text_Rekognition.jar > Text_Rekognition_execution.log 2>&1 &
+      when: inventory_hostname == "worker_node_2"
+      async: 120  # Run asynchronously with a longer timeout to handle the queue
+      poll: 0
+
+    - name: Pause for 5 minutes
+      pause:
+        minutes: 5
+
+    - name: Fetch output.txt from Worker Node 2
+      fetch:
+        src: /home/ec2-user/output.txt  # Source path on worker_node_2
+        dest: /home/ec2-user/AWS_Image_reKognition_pipeline_JAVA/output.txt  # Destination path on control node
+        flat: yes
+      when: inventory_hostname == "worker_node_2"
