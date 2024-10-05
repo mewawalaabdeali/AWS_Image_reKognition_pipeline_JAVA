@@ -142,4 +142,4 @@ The project is broken down into a series of tasks to be completed in stages, as 
 - Ensure that all IAM roles are properly configured with necessary permissions for SQS, S3, and Rekognition services.
 - Be sure to monitor the logs for both machines to verify that the services are running as expected.
 
-   ![img.png](img.png)
+   ![img_10.png](img_10.png)
