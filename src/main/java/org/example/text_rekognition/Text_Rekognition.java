@@ -50,6 +50,16 @@ public class Text_Rekognition {
 
             while (true) {
                 List<Message> messages = sqs.receiveMessage(receiveRequest).messages();
+                if (messages.isEmpty()) {
+                    // No messages in the queue, wait for a short period before checking again
+                    System.out.println("No messages received. Waiting for new messages...");
+                    try {
+                        Thread.sleep(10000);  // Wait for 10 seconds
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    continue;
+                }
 
                 for (Message message : messages) {
                     String body = message.body();

@@ -1,13 +1,29 @@
+Image: 1.jpg - Detected Text: $ BR8167 $ BR8167 
+Image: 2.jpg - No Text detected
+Image: 4.jpg - Detected Text: YHI9 OTZ YHI9 OTZ 
+Image: 3.jpg - Detected Text: 45 P P 11:50 85% PARKING 45 P P 11:50 85% PARKING 
+Termination signal received but the queue is not empty. Continue processing 
+ Image: 7.jpg - Detected Text: Lamborghini LP 610 LB Lamborghini LP 610 LB 
 Termination signal received but the queue is not empty. Continue processing 
  Image: 6.jpg - No Text detected
 Image: 7.jpg - Detected Text: Lamborghini LP 610 LB Lamborghini LP 610 LB 
-Termination signal received but the queue is not empty. Continue processing 
- Termination signal received but the queue is not empty. Continue processing 
- Image: 4.jpg - Detected Text: YHI9 OTZ YHI9 OTZ 
-Image: 1.jpg - Detected Text: $ BR8167 $ BR8167 
 Image: 2.jpg - No Text detected
-Image: 3.jpg - Detected Text: 45 P P 11:50 85% PARKING 45 P P 11:50 85% PARKING 
+Termination signal received but the queue is not empty. Continue processing 
+ Image: 1.jpg - Detected Text: $ BR8167 $ BR8167 
+Image: 6.jpg - No Text detected
+Termination signal received but the queue is not empty. Continue processing 
+ Image: 3.jpg - Detected Text: 45 P P 11:50 85% PARKING 45 P P 11:50 85% PARKING 
+Termination signal received but the queue is not empty. Continue processing 
+ Image: 3.jpg - Detected Text: 45 P P 11:50 85% PARKING 45 P P 11:50 85% PARKING 
+Image: 2.jpg - No Text detected
+Image: 4.jpg - Detected Text: YHI9 OTZ YHI9 OTZ 
+Image: 5.jpg - No Text detected
+Image: 7.jpg - Detected Text: Lamborghini LP 610 LB Lamborghini LP 610 LB 
 Image: 5.jpg - No Text detected
 Termination signal received but the queue is not empty. Continue processing 
- Termination signal received and queue is empty. Exiting 
+ Image: 5.jpg - No Text detected
+Image: 1.jpg - Detected Text: $ BR8167 $ BR8167 
+Image: 6.jpg - No Text detected
+Image: 4.jpg - Detected Text: YHI9 OTZ YHI9 OTZ 
+Termination signal received and queue is empty. Exiting 
 Termination signal processed. Exiting
