@@ -61,8 +61,8 @@ public class Text_Rekognition {
                             writer.write("Termination signal received and queue is empty. Exiting \n");
                             terminate = true;
                         } else {
-                            System.out.println("Termination signal received but the queue is not empty. Continue processing");
-                            writer.write("Termination signal received but the queue is not empty. Continue processing");
+                            System.out.println("Termination signal received but the queue is not empty. Continue processing \n");
+                            writer.write("Termination signal received but the queue is not empty. Continue processing \n ");
                         }
                         continue;
                     }
