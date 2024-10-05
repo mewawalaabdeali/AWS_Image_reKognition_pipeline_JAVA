@@ -46,11 +46,11 @@ The project is broken down into a series of tasks to be completed in stages, as 
 - AWS EC2 instances (2 machines)
 - AWS key pair for SSH access
 - Pre-configured Java and Maven on the EC2 machines
-- JAR files for Car Recognition and Text Recognition
+- JAR files for Car ReKognition and Text ReKognition
 
 ### Steps to Run
 
-1. **Task 1: Car Recognition (Machine 1)**
+1. **Task 1: Car ReKognition (Machine 1)**
     - SSH into Machine 1 using your key:
       ```bash
       ssh -i your-key.pem ec2-user@<machine1-public-ip>
@@ -66,7 +66,7 @@ The project is broken down into a series of tasks to be completed in stages, as 
       java -jar Car-Rekognition.jar
       ```
 
-2. **Task 2: Text Recognition (Machine 2)**
+2. **Task 2: Text ReKognition (Machine 2)**
     - SSH into Machine 2 using your key:
       ```bash
       ssh -i your-key.pem ec2-user@<machine2-public-ip>
@@ -90,12 +90,15 @@ The project is broken down into a series of tasks to be completed in stages, as 
 - 3 EC2 machines (1 control node and 2 worker nodes)
 - Java and Maven set up on all three machines
 - Ansible set up on all three machines
+  - https://stackoverflow.com/questions/30812453/how-to-install-ansible-on-amazon-aws
 - AWS key configuration on all three machines
+  - Use Command "aws configure" and provide access key and passcode to setup AWS key
 - Private IP addresses of the worker nodes
 
 ### Steps to Run
 
-1. **Task 1: Build the Project**
+1. **Task 1: Add Private IPs of the worker nodes in Inventory.ini file in the repository**
+2. **Task 2: Build the Project**
     - SSH into the control node and clone the repository:
       ```bash
       ssh -i your-key.pem ec2-user@<control-node-public-ip>
@@ -106,22 +109,25 @@ The project is broken down into a series of tasks to be completed in stages, as 
       ```bash
       mvn clean package
       ```
+   ![img_9.png](img_9.png)
 
-2. **Task 2: Configure and Run Ansible**
+2. **Task 3: Configure and Run Ansible**
     - Enter the private IPs of the worker nodes into the `inventory.ini` file under the `[worker_nodes]` section.
 
     - Run the Ansible playbook:
       ```bash
       ansible-playbook -i inventory.ini ansible.yaml
       ```
+      
+   ![img_8.png](img_8.png)
 
-3. **Task 3: Wait for Completion**
+3. **Task 4: Wait for Completion**
     - Wait for the execution to complete. This may take some time.
     - Once complete, check the output file in the same directory for the results.
 
 ---
 
-4. **Task 4: JAVA MAVEN Installation on EC2 Machines**
+4. **Task 5: JAVA MAVEN Installation on EC2 Machines**
    - Login into ec2 machines via ssh
    ![img_3.png](img_3.png)
    - Install packages – JAVA and MAVEN
@@ -134,7 +140,6 @@ The project is broken down into a series of tasks to be completed in stages, as 
 ## Additional Notes
 
 - Ensure that all IAM roles are properly configured with necessary permissions for SQS, S3, and Rekognition services.
-- Ensure that the EC2 instances are appropriately sized for the workload, especially if processing large datasets.
 - Be sure to monitor the logs for both machines to verify that the services are running as expected.
 
    ![img.png](img.png)
