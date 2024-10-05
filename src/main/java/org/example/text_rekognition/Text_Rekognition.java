@@ -69,6 +69,9 @@ public class Text_Rekognition {
                         if (messages.size() == 1) {
                             System.out.println("Termination signal received and queue is empty. Exiting \n");
                             writer.write("Termination signal received and queue is empty. Exiting \n");
+                            String messageReceiptHandle = message.receiptHandle();
+                            sqs.deleteMessage(DeleteMessageRequest.builder().queueUrl(queueUrl)
+                                    .receiptHandle(messageReceiptHandle).build());
                             terminate = true;
                         } else {
                             System.out.println("Termination signal received but the queue is not empty. Continue processing \n");
