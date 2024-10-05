@@ -78,15 +78,17 @@ public class Text_Rekognition {
                         List<TextDetection> textDetections = textResponse.textDetections();
                         if (!textDetections.isEmpty()) {
                             System.out.println("Text Detected in image : " + body);
-                            writer.write("Text Detected in image : " + body + "\n");
+                            writer.write("Image: " + body + " - Detected Text: ");
                             for (TextDetection text : textDetections) {
                                 if (text.confidence() >= 80) {
                                     System.out.println("Detected Text : " + text.detectedText());
-                                    writer.write("Detected Text : " + text.detectedText() + "\n");
-                                }}
+                                    writer.write(text.detectedText() + " ");
+                                }
+                            }
+                            writer.write("\n");
                             } else{
                                 System.out.println("No Text detected in image : " + body);
-                                writer.write("No Text detected in image : " + body + "\n");
+                                writer.write("Image: " + body + " - No Text detected\n");
                             }
                             //Delete message from SQS after processing
                             String messageReceiptHandle = message.receiptHandle();
