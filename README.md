@@ -141,6 +141,7 @@ The project is broken down into a series of tasks to be completed in stages, as 
 
    - Install packages – JAVA and MAVEN
 
+
    - JAVA
    ![img_4.png](img_4.png)
    ![img_5.png](img_5.png)
