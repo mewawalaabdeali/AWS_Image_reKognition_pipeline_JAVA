@@ -103,7 +103,7 @@ The project is broken down into a series of tasks to be completed in stages, as 
 ### Steps to Run
 
 1. **Task 1: Add Private IPs of the worker nodes in Inventory.ini file in the repository**
-   ![img_11.png](img_11.png)
+   ![img_11.png](Readme_images/img_11.png)
 2. **Task 2: Build the Project**
     - SSH into the control node and clone the repository:
       ```bash
@@ -115,7 +115,7 @@ The project is broken down into a series of tasks to be completed in stages, as 
       ```bash
       mvn clean package
       ```
-   ![img_9.png](img_9.png)
+   ![img_9.png](Readme_images/img_9.png)
 
 
 3. **Task 3: Configure and Run Ansible**
@@ -124,7 +124,7 @@ The project is broken down into a series of tasks to be completed in stages, as 
       ansible-playbook -i inventory.ini ansible.yaml
       ```
       
-   ![img_8.png](img_8.png)
+   ![img_8.png](Readme_images/img_8.png)
 
 
 
@@ -136,20 +136,20 @@ The project is broken down into a series of tasks to be completed in stages, as 
 
 **JAVA MAVEN Installation on EC2 Machines**
    - Login into ec2 machines via ssh
-   ![img_3.png](img_3.png)
+   ![img_3.png](Readme_images/img_3.png)
 
 
    - Install packages – JAVA and MAVEN
 
 
    - JAVA
-   ![img_4.png](img_4.png)
-   ![img_5.png](img_5.png)
+   ![img_4.png](Readme_images/img_4.png)
+   ![img_5.png](Readme_images/img_5.png)
 
 
    - Maven 
-   ![img_6.png](img_6.png)
-   ![img_7.png](img_7.png)
+   ![img_6.png](Readme_images/img_6.png)
+   ![img_7.png](Readme_images/img_7.png)
 
 
 ## Additional Notes
@@ -157,4 +157,4 @@ The project is broken down into a series of tasks to be completed in stages, as 
 - Ensure that all IAM roles are properly configured with necessary permissions for SQS, S3, and Rekognition services.
 - Be sure to monitor the logs for both machines to verify that the services are running as expected.
 
-   ![img_10.png](img_10.png)
+   ![img_10.png](Readme_images/img_10.png)
