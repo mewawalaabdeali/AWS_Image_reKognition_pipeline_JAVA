@@ -57,13 +57,13 @@ The project is broken down into a series of tasks to be completed in stages, as 
       ```
     - Clone the repository and navigate to the project directory:
       ```bash
-      git clone <repository-url>
-      cd AWS-directory
+      git clone https://github.com/mewawalaabdeali/AWS_Image_reKognition_pipeline_JAVA.git
+      cd AWS_Image_reKognition_pipeline_JAVA
       ```
     - Build the project and run the Car Recognition JAR:
       ```bash
       mvn clean package
-      java -jar Car-Rekognition.jar
+      java -jar Car_Rekognition.jar
       ```
 
 2. **Task 2: Text ReKognition (Machine 2)**
@@ -73,13 +73,13 @@ The project is broken down into a series of tasks to be completed in stages, as 
       ```
     - Clone the repository and navigate to the project directory:
       ```bash
-      git clone <repository-url>
-      cd AWS-directory
+      git clone https://github.com/mewawalaabdeali/AWS_Image_reKognition_pipeline_JAVA.git
+      cd AWS_Image_reKognition_pipeline_JAVA
       ```
     - Build the project and run the Text Recognition JAR:
       ```bash
       mvn clean package
-      java -jar Text-Rekognition.jar
+      java -jar Text_Rekognition.jar
       ```
 
 ---
@@ -91,6 +91,11 @@ The project is broken down into a series of tasks to be completed in stages, as 
 - Java and Maven set up on all three machines
 - Ansible set up on all three machines
   - https://stackoverflow.com/questions/30812453/how-to-install-ansible-on-amazon-aws
+  - Ansible configuration also involves setting up ssh into both the machines from master
+  ```bash
+      ssh -keygen
+   ```
+  - Copy the public key from control node to authorized key directory of the worker nodes.
 - AWS key configuration on all three machines
   - Use Command "aws configure" and provide access key and passcode to setup AWS key
 - Private IP addresses of the worker nodes
@@ -98,12 +103,13 @@ The project is broken down into a series of tasks to be completed in stages, as 
 ### Steps to Run
 
 1. **Task 1: Add Private IPs of the worker nodes in Inventory.ini file in the repository**
+   ![img_11.png](img_11.png)
 2. **Task 2: Build the Project**
     - SSH into the control node and clone the repository:
       ```bash
       ssh -i your-key.pem ec2-user@<control-node-public-ip>
-      git clone <repository-url>
-      cd AWS-directory
+      git clone https://github.com/mewawalaabdeali/AWS_Image_reKognition_pipeline_JAVA.git
+      cd AWS_Image_reKognition_pipeline_JAVA
       ```
     - Build the project:
       ```bash
@@ -111,9 +117,8 @@ The project is broken down into a series of tasks to be completed in stages, as 
       ```
    ![img_9.png](img_9.png)
 
-2. **Task 3: Configure and Run Ansible**
-    - Enter the private IPs of the worker nodes into the `inventory.ini` file under the `[worker_nodes]` section.
 
+3. **Task 3: Configure and Run Ansible**
     - Run the Ansible playbook:
       ```bash
       ansible-playbook -i inventory.ini ansible.yaml
@@ -121,22 +126,31 @@ The project is broken down into a series of tasks to be completed in stages, as 
       
    ![img_8.png](img_8.png)
 
-3. **Task 4: Wait for Completion**
+
+
+4. **Task 4: Wait for Completion**
     - Wait for the execution to complete. This may take some time.
     - Once complete, check the output file in the same directory for the results.
 
 ---
 
-4. **Task 5: JAVA MAVEN Installation on EC2 Machines**
+**JAVA MAVEN Installation on EC2 Machines**
    - Login into ec2 machines via ssh
    ![img_3.png](img_3.png)
+
+
    - Install packages – JAVA and MAVEN
+
    - JAVA
    ![img_4.png](img_4.png)
    ![img_5.png](img_5.png)
+
+
    - Maven 
    ![img_6.png](img_6.png)
    ![img_7.png](img_7.png)
+
+
 ## Additional Notes
 
 - Ensure that all IAM roles are properly configured with necessary permissions for SQS, S3, and Rekognition services.
