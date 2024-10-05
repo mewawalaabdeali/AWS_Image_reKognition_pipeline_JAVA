@@ -21,7 +21,7 @@ public class Car_Rekognition {
     public static void main(String[] args) {
 
         //Data Declaration
-        String bucketName = "my-image-recognition-demo-bucket";
+        String bucketName = "cs643-njit-project1";
         String queueUrl = "https://sqs.us-east-1.amazonaws.com/590183997993/image-recognition-demo";
 
         //Step1: Initializing the s3 client

@@ -1,45 +1,32 @@
-Image found in : Image-1.jpg
-Image found in : Image-3.jpg
-Image found in : Image-4.jpg
-Image found in : car_truck.jpg
-Image found in : truck_plane.jpg
-Total Images found : 5
-Images found : 
-[Image-1.jpg, Image-3.jpg, Image-4.jpg, car_truck.jpg, truck_plane.jpg]
-[Image-1.jpg, Image-3.jpg, Image-4.jpg, car_truck.jpg, truck_plane.jpg]
-[Image-1.jpg, Image-3.jpg, Image-4.jpg, car_truck.jpg, truck_plane.jpg]
-[Image-1.jpg, Image-3.jpg, Image-4.jpg, car_truck.jpg, truck_plane.jpg]
-[Image-1.jpg, Image-3.jpg, Image-4.jpg, car_truck.jpg, truck_plane.jpg]
-No text detected in images : Image-1.jpg
-Text detected in images : Image-3.jpg
-Detected Text : V
-Detected Text : cteez
-Detected Text : V
-Detected Text : و
-Detected Text : Vectee
-Detected Text : V
-Detected Text : Vecteezy
-Detected Text : v
-Detected Text : Vecteezy
-Detected Text : Vecteezy
-Detected Text : V
-Detected Text : cteez
-Detected Text : V
-Detected Text : و
-Detected Text : Vectee
-Detected Text : V
-Detected Text : Vecteezy
-Detected Text : v
-Detected Text : Vecteezy
-Text detected in images : Image-4.jpg
-Detected Text : -
-Detected Text : -
-No text detected in images : car_truck.jpg
-Text detected in images : truck_plane.jpg
-Text Detected in image : Image-4.jpg
-Detect Text-
-Detect Text-
-No text detected in image : Image-1.jpg
-No text detected in image : car_truck.jpg
-Text Detected in image : truck_plane.jpg
-End of Receiving messages 
+No Text detected in image : 6.jpg
+Text Detected in image : 1.jpg
+Detected Text : $ BR8167
+Detected Text : $
+Detected Text : BR8167
+Text Detected in image : 4.jpg
+Detected Text : YHI9 OTZ
+Detected Text : YHI9
+Detected Text : OTZ
+Text Detected in image : 7.jpg
+Detected Text : Lamborghini
+Detected Text : LP 610 LB
+Detected Text : Lamborghini
+Detected Text : LP
+Detected Text : 610 LB
+No Text detected in image : 2.jpg
+No Text detected in image : 5.jpg
+Termination signal received but the queue is not empty. Continue processingText Detected in image : 3.jpg
+Detected Text : 45
+Detected Text : P
+Detected Text : P
+Detected Text : 11:50
+Detected Text : 85%
+Detected Text : PARKING
+Detected Text : 45
+Detected Text : P
+Detected Text : P
+Detected Text : 11:50
+Detected Text : 85%
+Detected Text : PARKING
+Termination signal received and queue is empty. Exiting 
+Termination signal processed. Exiting
