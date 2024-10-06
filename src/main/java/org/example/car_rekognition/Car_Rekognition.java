@@ -36,7 +36,7 @@ public class Car_Rekognition {
         //Step3: Checking image extensions
         List<String> imageFiles = new ArrayList<>();
 
-        //Step4: Collecting image files from s3
+        //Step4: Collecting image files from s3 and fetching indexes
         for (S3Object object: response.contents()){
             String key = object.key();
 
