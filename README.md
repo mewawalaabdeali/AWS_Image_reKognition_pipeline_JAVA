@@ -2,7 +2,10 @@
 
 This project demonstrates an AWS Rekognition pipeline using two EC2 instances for Car Recognition and Text Recognition tasks. 
 The project can be run manually on two machines or automated using Ansible across multiple EC2 instances.
+
 Github Repository : https://github.com/mewawalaabdeali/AWS_Image_reKognition_pipeline_JAVA.git
+
+
 ## Project Breakdown
 
 The project is broken down into a series of tasks to be completed in stages, as follows:
@@ -161,13 +164,14 @@ The project is broken down into a series of tasks to be completed in stages, as 
       - AWS key configuration on EC2 instances
       
    - Variables
-      - SQS queue url
-      - S3 bucket name
-    
+      - SQS queue url declared as: 'queueUrl' at the beginning of both the classes
+      - S3 bucket name declared as: 'bucketName' at the beginning of both the classes
+
+
 2. **Manual Execution on Two Machines**:
-    - Performed initial tests manually
-    - Car Rekognition on Machine 1
-    - Text Rekognition on Machine  2
+ - Performed initial tests manually
+ - Car Rekognition on Machine 1
+ - Text Rekognition on Machine  2
 
 3. **Automation with Ansible**:
     - Configured Ansible Control-node, Worker-node setup

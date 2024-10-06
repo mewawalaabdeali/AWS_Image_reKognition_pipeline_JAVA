@@ -48,19 +48,21 @@ public class Text_Rekognition {
                     .queueUrl(queueUrl).maxNumberOfMessages(10)
                     .waitTimeSeconds(20).build();
 
+            //Step3: First we check if the queue is empty, if yes, put a wait to see if messages are received
             while (true) {
                 List<Message> messages = sqs.receiveMessage(receiveRequest).messages();
                 if (messages.isEmpty()) {
                     // No messages in the queue, wait for a short period before checking again
                     System.out.println("No messages received. Waiting for new messages...");
                     try {
-                        Thread.sleep(10000);  // Wait for 10 seconds
+                        Thread.sleep(10000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                     continue;
                 }
 
+                //Now we see if -1 is received and the only message in the queue
                 for (Message message : messages) {
                     String body = message.body();
 
@@ -84,6 +86,8 @@ public class Text_Rekognition {
                         DetectTextRequest textRequest = DetectTextRequest.builder()
                                 .image(Image.builder().s3Object(software.amazon.awssdk.services.rekognition.model.S3Object.builder()
                                         .bucket(bucketName).name(body).build()).build()).build();
+
+
                         //Call Rekognition to detect text
                         DetectTextResponse textResponse = rekognition.detectText(textRequest);
 
