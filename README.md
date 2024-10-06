@@ -63,6 +63,7 @@ The project is broken down into a series of tasks to be completed in stages, as 
            - Once the queue is created, click on the created queue
             ![img_2.png](Readme_images/img_2.png)
            - In the Details section, you will see URL, Copy and save this url as this will be declared in the variables
+            ![img.png](img.png)
            - This URL is used to communicate with the SQS services
            - Click on Send and Receive messages
            - You will navigate to a screen as below, scroll down and you shall see "Poll for messages tab"
@@ -74,11 +75,14 @@ The project is broken down into a series of tasks to be completed in stages, as 
            - Search/Click on Services and click on EC2
             ![img_11.png](Readme_images/img_11.png)
            - On the top right corner, Click on Launch Instances
+           
             ![img_12.png](Readme_images/folder 1/img_12.png)
+      
            - Give the name and Number of Instances
             ![img_13.png](Readme_images/folder 1/img_13.png)
            - You can choose Ubuntu, Redhat, Amazon, they are all different flavors of linux, You can choose any. Though some of them are free tier eligible
-            ![img_14.png](Readme_images/folder 1/img_14.png)
+          
+           - ![img_14.png](Readme_images/folder 1/img_14.png)
            - Architecture - 64-bit (x86) and Instance type - t2-micro as it is free-tier eligible
             ![img_15.png](Readme_images/img_15.png)
            - If you have an existing key pair, you can choose that from the drop down else create new
@@ -102,6 +106,7 @@ The project is broken down into a series of tasks to be completed in stages, as 
            - https://sdk.amazonaws.com/java/api/latest/
            - https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectLabels.html
            - https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/setup-project-maven.html
+           
     - Project Setup 
       - Eclipse or Intellij that uses Maven.
       - POM setup to ensure 2 jars are created separately
@@ -109,9 +114,11 @@ The project is broken down into a series of tasks to be completed in stages, as 
       - 2 JAVA classes 
         - Object Rekognition - Car
         - Text Rekognition - Text
+        
     - ENVIRONMENT setup
       - JAVA and MAVEN installation in EC2 instances
       - AWS key configuration on EC2 instances
+      
     - Variables
       - SQS queue url
       - S3 bucket name
@@ -183,9 +190,9 @@ The project is broken down into a series of tasks to be completed in stages, as 
       ssh -keygen
    ```
   - Copy the public key from control node to authorized key directory of the worker nodes.
-- AWS key configuration on all three machines
+  - AWS key configuration on all three machines
   - Use Command "aws configure" and provide access key and passcode to setup AWS key
-- Private IP addresses of the worker nodes
+  - Private IP addresses of the worker nodes
 
 ### Steps to Run
 
