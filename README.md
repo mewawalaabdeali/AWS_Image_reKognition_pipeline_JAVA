@@ -238,7 +238,9 @@ The project is broken down into a series of tasks to be completed in stages, as 
 ### Steps to Run
 
 1. **Task 1: Add Private IPs of the worker nodes in Inventory.ini file in the repository**
-   ![img_11.png](Readme_images/folder 1/img_11.png)
+   
+    ![img_11.png](Readme_images%2Ffolder%201%2Fimg_11.png)
+    
 2. **Task 2: Build the Project**
     - SSH into the control node and clone the repository:
       ```bash
@@ -250,11 +252,7 @@ The project is broken down into a series of tasks to be completed in stages, as 
       ```bash
       mvn clean package
        ```
-      ![img_9.png](Readme_images/folder 1/img_9.png)
-      
-
-   
-
+     ![img_9.png](Readme_images%2Ffolder%201%2Fimg_9.png)
 
 3. **Task 3: Configure and Run Ansible**
     - Configure Inventory file, check ssh connection with worker nodes, check aws config
