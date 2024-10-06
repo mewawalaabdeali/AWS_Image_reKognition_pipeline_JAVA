@@ -30,9 +30,7 @@ The project is broken down into a series of tasks to be completed in stages, as 
              
              ![img_25.png](Readme_images/img_25.png)
            - Scroll down and click on Create Access key
-           
-             ![img_26.png](Readme_images/img_26.png)
-           
+                      
            - Click on Command Line Interface
            
              ![img_27.png](Readme_images/img_27.png)
