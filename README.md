@@ -14,65 +14,95 @@ The project is broken down into a series of tasks to be completed in stages, as 
            - Login to AWS console and Click on Services
            - Click/Search IAM
            - Click on create User
+           
              ![img_21.png](Readme_images/img_21.png)
+           
            - Give a suitable name and click on the box and click on create IAM user and click next
+             
              ![img_23.png](Readme_images/img_23.png)
            - Click on Attach Policies directly and search for Search for Rekognition, S3, SQS and attach 'AmazonRekognitionFullAccess', 'AmazonS3FullAccess', 'AmazonSQSFullAccess'
+            
              ![img_24.png](Readme_images/img_24.png)
+           
            - Click Next and Create User
            - Click on User created and Click on 'Security Credentials'
+             
              ![img_25.png](Readme_images/img_25.png)
            - Scroll down and click on Create Access key
+           
              ![img_26.png](Readme_images/img_26.png)
+           
            - Click on Command Line Interface
+           
              ![img_27.png](Readme_images/img_27.png)
+           
            - Click Next and Create Access key. With this key you can manually configure your ec2 instances using 'aws configure command'
            
            - Dynamic Method:
            - In the left panel, below User Groups and User, Click on Roles
+            
              ![img_7.png](Readme_images/img_7.png)
            - Click on Create role
            - Click on AWS Services and Use case - choose EC2 and click Next
+             
              ![img_8.png](Readme_images/img_8.png)
+           
            - Attach Policies. Search for Rekognition, S3, SQS and attach 'AmazonRekognitionFullAccess', 'AmazonS3FullAccess', 'AmazonSQSFullAccess'
+            
              ![img_9.png](Readme_images/img_9.png)
            - Click Next and give a Unique name and click create role
+           
              ![img_10.png](Readme_images/img_10.png)
            - You can see the role created
            
          - S3 bucket where images are uploaded
            - Click on Services and click/Search on S3
+           
             ![img_4.png](Readme_images/img_4.png)
+      
            - Click on create Bucket, for this project we will use the project created bucket : "cs643-njit-project1"
            - This will be declared in the variables
+           
             ![img_5.png](Readme_images/img_5.png)
+      
            - Click on general purpose
            - Give a unique name
            - Untick on the box to make it public and you can skip all other settings
            - Click on create bucket
+           
             ![img_6.png](Readme_images/img_6.png)
            
          - An SQS queue for messages polling
            - Login into AWS Console and click on Services
            - Search for Simple Queue service:
+           
             ![img.png](Readme_images/img.png)
+      
            - Click on Create Queue
+           
             ![img_1.png](Readme_images/img_1.png)
+      
            - Based on the code handling you can either choose, Standard or FIFO
            - You can leave rest of the settings and click on Create Queue
            - Once the queue is created, click on the created queue
+           
             ![img_2.png](Readme_images/img_2.png)
+      
            - In the Details section, you will see URL, Copy and save this url as this will be declared in the variables
+           
             ![img.png](img.png)
+      
            - This URL is used to communicate with the SQS services
            - Click on Send and Receive messages
            - You will navigate to a screen as below, scroll down and you shall see "Poll for messages tab"
+            
            ![img_3.png](Readme_images/img_3.png)
            - This is where you can test the queued messages.
            
          - Launch EC2 Instances
            - Login to AWS Console
            - Search/Click on Services and click on EC2
+           
             ![img_11.png](Readme_images/img_11.png)
            
            - On the top right corner, Click on Launch Instances
@@ -86,42 +116,52 @@ The project is broken down into a series of tasks to be completed in stages, as 
             ![img_14.png](Readme_images%2Ffolder%201%2Fimg_14.png)
            
            - Architecture - 64-bit (x86) and Instance type - t2-micro as it is free-tier eligible
+            
             ![img_15.png](Readme_images/img_15.png)
            - If you have an existing key pair, you can choose that from the drop down else create new
+           
             ![img_16.png](Readme_images/img_16.png)
            - In network settings : keep the settings default, it will choose default security group and default VPC
+            
             ![img_17.png](Readme_images/img_17.png)
            - Configure storage : You can keep default and click on Launch Instances
+           
             ![img_18.png](Readme_images/img_18.png)
+      
            - Once Launched, Click on Instances to view the launched Instances. Instances generally take 2-3 to launch
            - Wait till the Instance state becomes Running and Status check 2/2
            - Now click on Instance, CLick on Actions on the top right corner, Under Security click on Modify IAM role
+            
             ![img_19.png](Readme_images/img_19.png)
            - Under IAM role, drop down and choose the IAM role we created earlier and Click on Update IAM Role.
+            
             ![img_20.png](Readme_images/img_20.png)
+      
            - Now the Access Policies are attached to the machines. It can access the services from AWS.
            - This is a dynamic method where AWS configures the key automatically and the suitable policies are attached
            
-         - AWS SDK to use objects and libraries in the code.
+         
+           
+   - Project Setup 
+      - Eclipse or Intellij that uses Maven.
+      - POM setup to ensure 2 jars are created separately
+      - AWS SDK dependencies.
+        AWS SDK to use objects and libraries in the code
            - https://docs.aws.amazon.com/code-library/latest/ug/what-is-code-library.html
            - https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/java/example_code/rekognition/rekognition-image-java-detect-text.java
            - https://sdk.amazonaws.com/java/api/latest/
            - https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectLabels.html
            - https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/setup-project-maven.html
-           
-    - Project Setup 
-      - Eclipse or Intellij that uses Maven.
-      - POM setup to ensure 2 jars are created separately
-      - AWS SDK dependencies.
-      - 2 JAVA classes 
+        
+   - 2 JAVA classes 
         - Object Rekognition - Car
         - Text Rekognition - Text
         
-    - ENVIRONMENT setup
+   - ENVIRONMENT setup
       - JAVA and MAVEN installation in EC2 instances
       - AWS key configuration on EC2 instances
       
-    - Variables
+   - Variables
       - SQS queue url
       - S3 bucket name
     
@@ -237,6 +277,7 @@ The project is broken down into a series of tasks to be completed in stages, as 
 
    - Install packages – JAVA and MAVEN
    - JAVA
+   - 
      ![img_4.png](Readme_images%2Ffolder%201%2Fimg_4.png)
    
      ![img_5.png](Readme_images%2Ffolder%201%2Fimg_5.png)
