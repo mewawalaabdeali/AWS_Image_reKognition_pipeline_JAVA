@@ -2,7 +2,7 @@
 
 This project demonstrates an AWS Rekognition pipeline using two EC2 instances for Car Recognition and Text Recognition tasks. 
 The project can be run manually on two machines or automated using Ansible across multiple EC2 instances.
-
+Github Repository : https://github.com/mewawalaabdeali/AWS_Image_reKognition_pipeline_JAVA.git
 ## Project Breakdown
 
 The project is broken down into a series of tasks to be completed in stages, as follows:
