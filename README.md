@@ -210,8 +210,8 @@ The project is broken down into a series of tasks to be completed in stages, as 
     - Build the project:
       ```bash
       mvn clean package
-      ```
-   ![img_9.png](Readme_images/folder 1/img_9.png)
+       ```
+     ![img_9.png](Readme_images/folder 1/img_9.png)
 
 
 3. **Task 3: Configure and Run Ansible**
@@ -220,7 +220,7 @@ The project is broken down into a series of tasks to be completed in stages, as 
       ansible-playbook -i inventory.ini ansible.yaml
       ```
       
-   ![img_8.png](Readme_images%2Ffolder%201%2Fimg_8.png)
+     ![img_8.png](Readme_images%2Ffolder%201%2Fimg_8.png)
 
 
 
@@ -232,19 +232,19 @@ The project is broken down into a series of tasks to be completed in stages, as 
 
 **JAVA MAVEN Installation on EC2 Machines**
    - Login into ec2 machines via ssh
-   ![img_3.png](Readme_images/folder 1/img_3.png)
+     ![img_3.png](Readme_images/folder 1/img_3.png)
 
 
    - Install packages – JAVA and MAVEN
    - JAVA
-
-   ![img_4.png](Readme_images/folder 1/img_4.png)
-   ![img_5.png](Readme_images/folder 1/img_5.png)
+     ![img_4.png](Readme_images%2Ffolder%201%2Fimg_4.png)
+   
+     ![img_5.png](Readme_images%2Ffolder%201%2Fimg_5.png)
 
 
    - Maven 
-   ![img_6.png](Readme_images/folder 1/img_6.png)
-   ![img_7.png](Readme_images/folder 1/img_7.png)
+     ![img_6.png](Readme_images%2Ffolder%201%2Fimg_6.png)
+     ![img_7.png](Readme_images%2Ffolder%201%2Fimg_7.png)
 
 
 ## Additional Notes
@@ -252,4 +252,4 @@ The project is broken down into a series of tasks to be completed in stages, as 
 - Ensure that all IAM roles are properly configured with necessary permissions for SQS, S3, and Rekognition services.
 - Be sure to monitor the logs for both machines to verify that the services are running as expected.
 
-   ![img_10.png](Readme_images/folder 1/img_10.png)
+    ![img_10.png](Readme_images%2Ffolder%201%2Fimg_10.png)
