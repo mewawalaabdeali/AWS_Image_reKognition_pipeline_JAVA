@@ -74,15 +74,17 @@ The project is broken down into a series of tasks to be completed in stages, as 
            - Login to AWS Console
            - Search/Click on Services and click on EC2
             ![img_11.png](Readme_images/img_11.png)
+           
            - On the top right corner, Click on Launch Instances
            
-            ![img_12.png](Readme_images/folder 1/img_12.png)
+            ![img_12.png](Readme_images%2Ffolder%201%2Fimg_12.png)
       
            - Give the name and Number of Instances
-            ![img_13.png](Readme_images/folder 1/img_13.png)
+            ![img_13.png](Readme_images%2Ffolder%201%2Fimg_13.png)
            - You can choose Ubuntu, Redhat, Amazon, they are all different flavors of linux, You can choose any. Though some of them are free tier eligible
           
-           - ![img_14.png](Readme_images/folder 1/img_14.png)
+            ![img_14.png](Readme_images%2Ffolder%201%2Fimg_14.png)
+           
            - Architecture - 64-bit (x86) and Instance type - t2-micro as it is free-tier eligible
             ![img_15.png](Readme_images/img_15.png)
            - If you have an existing key pair, you can choose that from the drop down else create new
@@ -218,7 +220,7 @@ The project is broken down into a series of tasks to be completed in stages, as 
       ansible-playbook -i inventory.ini ansible.yaml
       ```
       
-   ![img_8.png](Readme_images/folder 1/img_8.png)
+   ![img_8.png](Readme_images%2Ffolder%201%2Fimg_8.png)
 
 
 
